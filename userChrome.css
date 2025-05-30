@@ -1,0 +1,131 @@
+@-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) {
+
+  *{
+    scrollbar-width: none !important;
+  }
+
+  :root {	
+    --tab-min-height: 20px !important;
+    --tab-max-height: 20px !important;
+    --toolbarbutton-inner-padding: 0 !important;
+    --toolbar-field-focus-border-color: rgb(0, 0, 0) !important;
+
+    --my-bg-color: rgb(0, 0, 0);
+    --my-bg-color-hover: rgba(100, 0, 0, 0.5);
+    --my-font-size: 1em;
+    --my-min-font-size: 0.8em;
+  }
+
+  #sidebar-main button-group {
+    background-color: var(--my-bg-color) !important;
+  }
+
+  #tabbrowser-tabs {
+    background-color: var(--my-bg-color) !important;
+
+    [class="tabbrowser-tab"][soundplaying] [class="tab-icon-overlay"] { 
+      display: none !important;
+    }
+
+    #tabbrowser-arrowscrollbox-periphery {
+      display: none !important;
+    }
+
+    #vertical-pinned-tabs-container {
+      max-height: calc(10 * var(--tabstrip-min-height) + var(--space-large)) !important;
+      padding-top: 15px !important;
+      padding-bottom: 15px !important;
+    }
+
+    [class="tabbrowser-tab"] [class="tab-icon-image"] {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    [class="tab-icon-stack"] {
+      margin-left: 5px !important;
+      margin-right: 5px !important;
+    }
+
+    [class="tab-content"] [class*="tab-close-button"] {
+      margin-right: 5px !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+
+  #navigator-toolbox {
+    background-color: var(--my-bg-color) !important;
+  }
+
+  #nav-bar {
+    background-color: var(--my-bg-color) !important;
+    font-size: .8em !important;
+    font-size: .8em !important;
+    height: 25px !important;
+
+    #urlbar-results{
+      background-color: var(--my-bg-color) !important;
+    }
+
+    #urlbar-background {
+      background: var(--my-bg-color) !important;
+    }
+
+    #urlbar[breakout][breakout-extend] #urlbar-background {
+      border-color: var(--my-bg-color) !important;
+    }
+
+    #urlbar-container {
+
+      #urlbar {
+        min-height: 0 !important;
+        height: 25px !important;
+
+        #searchmode-switcher-icon {
+          height: 12px !important;
+          width: 12px !important;
+        }
+
+        #tracking-protection-icon, 
+        #identity-icon,
+        #page-action-buttons image, 
+        #unified-extensions-button image {
+          width: 10px !important;
+        }
+
+        .urlbarView {
+          border-inline: 0 !important;
+        }
+      }
+    }
+
+    #nav-bar-customization-target { 
+      margin-left: 1% !important;
+
+      image {
+        width: 13px !important;
+      }
+    }
+  }
+
+  #PersonalToolbar {
+    background-color: rgb(0,0,0) !important;
+
+    .bookmark-item {
+      color: #ccc !important;
+    }
+
+    .bookmark-item image {
+      display: none !important;
+    }
+  }
+
+  .actions-list {
+    & > moz-button:not(.tools-overflow) {
+      &:last-of-type {
+        display: none !important;
+      }
+    }
+  }
+}
