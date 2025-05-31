@@ -10,10 +10,49 @@
     --toolbarbutton-inner-padding: 0 !important;
     --toolbar-field-focus-border-color: rgb(0, 0, 0) !important;
 
-    --my-bg-color: rgb(0, 0, 0);
-    --my-bg-color-hover: rgba(100, 0, 0, 0.5);
+    --my-bg-color: rgb(50, 58, 67);
+    --my-bg-color-hover: rgba(100, 0, 0, 0.8);
     --my-font-size: 1em;
     --my-min-font-size: 0.8em;
+    --my-button-active-bgcolor: rgba(70, 70, 120, 0.9) !important;
+
+    --my-tab-text-color: rgba(215, 215, 215, 0.9);
+    --my-tab-text-color-selected: rgb(255, 255, 255);
+    --my-tab-font-size: 0.9em;
+
+    #browser {
+      background-color: var(--my-bg-color) !important;
+
+      #tabbrowser-tabpanels {
+        border-radius: 8px !important;
+        background-color: var(--my-bg-color) !important;
+      }
+
+      #tabbrowser-tabbox {
+        box-shadow: none !important;
+        outline: none !important;
+        overflow: unset !important;
+      }
+
+      #tabbrowser-tabbox browser {
+        background-color: var(--my-bg-color) !important;
+        border-radius: 8px !important;
+      }
+
+      .browserContainer {
+        border-radius: 8px !important;
+      }
+
+      .browserStack {
+        border-radius: 8px !important;
+        margin: 4px !important;
+      }
+    }
+
+    [class="devtools-horizontal-splitter"] {
+      margin-bottom: 1px !important;
+      width: 100px !important;
+    }
   }
 
   #sidebar-main button-group {
@@ -32,25 +71,79 @@
     }
 
     #vertical-pinned-tabs-container {
-      max-height: calc(10 * var(--tabstrip-min-height) + var(--space-large)) !important;
-      padding-top: 15px !important;
-      padding-bottom: 15px !important;
+      [class="tabbrowser-tab"] {
+
+        border: 1px solid transparent !important;
+        border-radius: 6px !important;
+
+        [class="tab-icon-image"] {
+          width: 18px !important;
+          height: 18px !important;
+        }
+
+        [class="tab-stack"] {
+        }
+
+        :hover [class="tab-background"] {
+          background-color: var(--my-button-active-bgcolor) !important;
+        }
+
+        [class="tab-background"] {
+          padding-top: 17px !important;
+          padding-bottom: 17px !important;
+          transition: box-shadow .3s;
+        }
+
+      }
+
+      max-height: calc(12 * var(--tabstrip-min-height) + var(--space-large)) !important;
     }
 
-    [class="tabbrowser-tab"] [class="tab-icon-image"] {
-      width: 14px !important;
-      height: 14px !important;
-    }
+    [class="tabbrowser-tab"] {
 
-    [class="tab-icon-stack"] {
-      margin-left: 5px !important;
-      margin-right: 5px !important;
-    }
+      :hover [class="tab-background"] {
+        background: var(--my-button-active-bgcolor) !important;
+      }
 
-    [class="tab-content"] [class*="tab-close-button"] {
-      margin-right: 5px !important;
-      width: 20px !important;
-      height: 20px !important;
+      [class="tab-icon-image"] {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      [class="tab-background"] {
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        outline: none !important;
+      }
+
+      [class="tab-content"] {
+        font-size: var(--my-tab-font-size) !important;
+
+        [class*="tab-text"] {
+          color: var(--my-tab-text-color) !important;
+        }
+
+        [class="tab-icon-stack"] {
+          margin-left: 5px !important;
+          margin-right: 5px !important;
+        }
+
+        [class*="tab-close-button"] {
+          margin-right: 5px !important;
+          width: 20px !important;
+          height: 20px !important;
+        }
+      }
+
+      [class="tab-background"][selected] {
+        background: var(--my-button-active-bgcolor) !important;
+      }
+
+      [class="tab-content"][selected] [class*="tab-text"][selected] {
+        color: var(--my-tab-text-color-selected) !important;
+      }
+
     }
   }
 
@@ -64,42 +157,6 @@
     font-size: .8em !important;
     height: 25px !important;
 
-    #urlbar-results{
-      background-color: var(--my-bg-color) !important;
-    }
-
-    #urlbar-background {
-      background: var(--my-bg-color) !important;
-    }
-
-    #urlbar[breakout][breakout-extend] #urlbar-background {
-      border-color: var(--my-bg-color) !important;
-    }
-
-    #urlbar-container {
-
-      #urlbar {
-        min-height: 0 !important;
-        height: 25px !important;
-
-        #searchmode-switcher-icon {
-          height: 12px !important;
-          width: 12px !important;
-        }
-
-        #tracking-protection-icon, 
-        #identity-icon,
-        #page-action-buttons image, 
-        #unified-extensions-button image {
-          width: 10px !important;
-        }
-
-        .urlbarView {
-          border-inline: 0 !important;
-        }
-      }
-    }
-
     #nav-bar-customization-target { 
       margin-left: 1% !important;
 
@@ -107,10 +164,101 @@
         width: 13px !important;
       }
     }
+
+    #urlbar-results {
+      background-color: var(--my-bg-color) !important;
+    }
+
+    #urlbar[focused] #urlbar-background {
+      outline: none !important;
+    }
+
+    #urlbar-background {
+      border: none !important;
+      background: var(--my-bg-color) !important;
+    }
+
+    #unified-extensions-button {
+      display: none !important;
+    }
+
+    #urlbar-searchmode-switcher {
+      display: none !important;
+    }
+
+    #urlbar[focused] {
+      outline: none !important;
+      border: 0 !important;
+      border-color: var(--my-bg-color) !important;
+
+      #urlbar-searchmode-switcher {
+        display: none !important;
+      }
+    }
+
+    #urlbar[open] {
+      #urlbar-background {
+        border: 0 !important;
+        border-inline: 0 !important;
+        border-radius: 0 0 20px 20px !important;
+        border-color: transparent !important;
+      }
+
+      .urlbarView {
+        border-inline: 0 !important;
+        border: 0 !important;
+        border-color: transparent !important;
+        border-radius: 0 0 30px 30px !important;
+      }
+    }
+
+    #urlbar[focused] #urlbar-input {
+      outline: none !important;
+      border: 1px !important;
+      border-color: var(--my-bg-color) !important;
+
+      #urlbar-searchmode-switcher {
+        display: none !important;
+      }
+    }
+
+    #urlbar[breakout][breakout-extend] {
+
+      #identity-box,
+      #tracking-protection-icon-container,
+      #urlbar-searchmode-switcher {
+        display: none !important;
+      }
+
+      #urlbar-container {
+        #urlbar {
+          min-height: 0 !important;
+          height: 25px !important;
+
+          #searchmode-switcher-icon {
+            height: 12px !important;
+            width: 12px !important;
+          }
+
+          #tracking-protection-icon, 
+          #identity-icon,
+          #page-action-buttons image {
+            width: 10px !important;
+          }
+
+          .urlbarView {
+            border-inline: 1px !important;
+            border: 1px !important;
+            border-color: var(--my-bg-color) !important;
+            border-radius: 20px !important;
+          }
+        }
+      }
+    }
   }
 
   #PersonalToolbar {
-    background-color: rgb(0,0,0) !important;
+    background-color: var(--my-bg-color) !important;
 
     .bookmark-item {
       color: #ccc !important;
