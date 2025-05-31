@@ -11,7 +11,9 @@
     --toolbar-field-focus-border-color: rgb(0, 0, 0);
 
     --my-bg-color: rgb(30, 48, 67);
-    --my-bg-color-gradient: linear-gradient(#e66465, #9198e5);
+    --my-bg-color-navbar: rgb(30, 48, 67);
+    --my-bg-color-gradient: linear-gradient(rgba(100,103,120, .9), rgba(150,103,120, .9));
+    --my-bg-color-gradient-inverted: linear-gradient(rgba(150,103,120, .9),rgba(100,103,120, .9));
     --my-bg-color-hover: rgba(100, 0, 0, 0.8);
     --my-font-size: 1em;
     --my-min-font-size: 0.8em;
@@ -23,11 +25,11 @@
 
     /* Browser */
     #browser {
-      background-color: var(--my-bg-color) !important;
+      background: var(--my-bg-color) !important;
 
       #tabbrowser-tabpanels {
         border-radius: 8px !important;
-        background-color: var(--my-bg-color) !important;
+        background: var(--my-bg-color) !important;
       }
 
       #tabbrowser-tabbox {
@@ -155,11 +157,11 @@
 
   /* Navbar */
   #navigator-toolbox {
-    background-color: var(--my-bg-color) !important;
+    background: var(--my-bg-color) !important;
   }
 
   #nav-bar {
-    background-color: var(--my-bg-color) !important;
+    background: var(--my-bg-color) !important;
     font-size: .8em !important;
     font-size: .8em !important;
     height: 25px !important;
@@ -173,7 +175,7 @@
     }
 
     #urlbar-results {
-      background-color: var(--my-bg-color) !important;
+      background: var(--my-bg-color) !important;
     }
 
     #urlbar[focused] #urlbar-background {
