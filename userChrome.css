@@ -51,11 +51,25 @@
         border-radius: 8px !important;
         margin: 4px !important;
       }
+
+      #sidebar {
+        box-shadow: none !important;
+      }
+
+      #sidebar-box {
+        padding-bottom: 1px !important;
+        padding-right: 1px !important;
+        margin: 4px !important;
+        background-color: var(--my-bg-color) !important;
+      }
+    }
+
+    [class="devtools-toolbox-bottom-iframe"] {
+      padding: 2px !important;
     }
 
     [class="devtools-horizontal-splitter"] {
-      margin-bottom: 1px !important;
-      width: 100px !important;
+      background: var(--my-bg-color) !important;
     }
   }
 
@@ -96,6 +110,10 @@
           padding-bottom: 17px !important;
           transition: box-shadow .3s;
           background-color: var(--my-bg-color) !important;
+        }
+
+        [class="tab-background"][selected] {
+          background: var(--my-button-active-bgcolor) !important;
         }
 
       }
@@ -166,6 +184,11 @@
     font-size: .8em !important;
     height: 25px !important;
 
+
+    #urlbar #urlbar-input {
+      padding-left: 15px !important;
+    }
+
     #nav-bar-customization-target { 
       margin-left: 1% !important;
 
@@ -189,6 +212,7 @@
 
     #tracking-protection-icon-container,
     #unified-extensions-button,
+    #downloads-button,
     #reload-button,
     #forward-button,
     #stop-button,
@@ -208,6 +232,7 @@
       outline: none !important;
       border: 0 !important;
       border-color: var(--my-bg-color) !important;
+      /* margin-top: 4px !important; */
 
       #urlbar-searchmode-switcher {
         display: none !important;
@@ -227,6 +252,10 @@
         border: 0 !important;
         border-color: transparent !important;
         border-radius: 0 0 30px 30px !important;
+
+        .search-one-offs {
+          display: none !important;
+        }
 
         .urlbarView-body-inner {
           #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
@@ -276,6 +305,10 @@
             border: 1px !important;
             border-color: var(--my-bg-color) !important;
             border-radius: 20px !important;
+
+            .search-one-offs {
+              display: none !important;
+            }
           }
         }
       }
