@@ -1,7 +1,12 @@
+
 @-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) {
 
   * {
     scrollbar-width: none !important;
+  }
+
+  html >body {
+    background: var(--my-bg-color) !important;
   }
 
   :root {	
@@ -10,7 +15,8 @@
     --toolbarbutton-inner-padding: 0;
     --toolbar-field-focus-border-color: rgb(0, 0, 0);
 
-    --my-bg-color: rgb(30, 48, 67);
+    /* rgb(30, 48, 67); */
+    --my-bg-color: rgba(39,45,49, 0.8);
     --my-bg-color-navbar: rgb(30, 48, 67);
     --my-bg-color-gradient: linear-gradient(rgba(100,103,120, .9), rgba(150,103,120, .9));
     --my-bg-color-gradient-inverted: linear-gradient(rgba(150,103,120, .9),rgba(100,103,120, .9));
@@ -22,13 +28,15 @@
     --my-tab-text-color: rgba(215, 215, 215, 0.9);
     --my-tab-text-color-selected: rgb(255, 255, 255);
     --my-tab-font-size: 0.9em;
+    --my-border-radius: 8px;
+
 
     /* Browser */
     #browser {
       background: var(--my-bg-color) !important;
 
       #tabbrowser-tabpanels {
-        border-radius: 8px !important;
+        border-radius: var(--my-border-radius) !important;
         background: var(--my-bg-color) !important;
       }
 
@@ -36,19 +44,24 @@
         box-shadow: none !important;
         outline: none !important;
         overflow: unset !important;
+
+        findbar {
+          border-radius: var(--my-border-radius) !important;
+          margin: 1px 3px !important;
+        }
       }
 
       #tabbrowser-tabbox browser {
         background-color: var(--my-bg-color) !important;
-        border-radius: 8px !important;
+        border-radius: var(--my-border-radius) !important;
       }
 
       .browserContainer {
-        border-radius: 8px !important;
+        border-radius: var(--my-border-radius) !important;
       }
 
       .browserStack {
-        border-radius: 8px !important;
+        border-radius: var(--my-border-radius) !important;
         margin: 4px !important;
       }
 
@@ -75,6 +88,7 @@
 
   #sidebar-main button-group {
     background-color: var(--my-bg-color) !important;
+    margin-bottom: 4px !important;
   }
 
   /* Tabs */
@@ -119,7 +133,8 @@
       }
 
       /* Max amount of the pinned tabs */
-      max-height: calc(12 * var(--tabstrip-min-height) + var(--space-large)) !important;
+      max-height: calc(20 * var(--tabstrip-min-height) + var(--space-large)) !important;
+      height: auto !important;
     }
 
     [class="tabbrowser-tab"] {
@@ -136,6 +151,7 @@
       }
 
       [class="tab-background"] {
+        background: var(--my-bg-color) !important;
         border: none !important;
         box-shadow: none !important;
         border-radius: 10px !important;
@@ -232,7 +248,6 @@
       outline: none !important;
       border: 0 !important;
       border-color: var(--my-bg-color) !important;
-      /* margin-top: 4px !important; */
 
       #urlbar-searchmode-switcher {
         display: none !important;
